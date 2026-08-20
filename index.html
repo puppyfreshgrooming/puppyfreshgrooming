@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Puppy Fresh Grooming | Mt Pleasant, SC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --marsh: #2F4739;
+    --marsh-dark: #223228;
+    --sand: #EFE6D8;
+    --sand-light: #F8F3EA;
+    --clay: #E08E6D;
+    --clay-dark: #C97650;
+    --teal: #6E9E8C;
+    --ink: #24211D;
+    --line: rgba(36,33,29,0.18);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--sand-light);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--clay-dark);
+  }
+  a { color: inherit; }
+  img{ max-width:100%; display:block; }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position: sticky; top:0; z-index: 50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 1.1rem clamp(1.2rem, 4vw, 3.5rem);
+    background: rgba(248,243,234,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .brand{
+    display:flex; align-items:center; gap:0.6rem;
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem;
+  }
+  .brand .mark{
+    width:34px; height:34px; border-radius:50%;
+    background: var(--marsh);
+    display:flex; align-items:center; justify-content:center;
+    color: var(--sand-light);
+  }
+  .brand .mark svg{ width:18px; height:18px; }
+  nav ul{
+    list-style:none; display:flex; gap:2rem; margin:0; padding:0;
+    font-size:0.92rem; font-weight:500;
+  }
+  nav ul a{ text-decoration:none; opacity:0.85; }
+  nav ul a:hover{ opacity:1; }
+  .nav-cta{
+    display:inline-block; text-decoration:none;
+    background: var(--marsh); color: var(--sand-light);
+    padding: 0.55rem 1.15rem; border-radius: 999px;
+    font-size: 0.88rem; font-weight:600;
+  }
+  .nav-links-wrap{ display:flex; align-items:center; gap:2.2rem; }
+  @media (max-width: 760px){
+    nav ul{ display:none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding: clamp(3.5rem, 9vw, 7rem) clamp(1.2rem, 4vw, 3.5rem) clamp(4rem, 8vw, 6rem);
+    background:
+      radial-gradient(ellipse at 85% 0%, rgba(110,158,140,0.25), transparent 55%),
+      var(--sand-light);
+    overflow:hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(2rem,5vw,4rem);
+    align-items:center; max-width:1200px; margin:0 auto;
+  }
+  .hero h1{
+    font-size: clamp(2.6rem, 5.6vw, 4.3rem);
+    line-height: 1.03;
+    font-weight: 600;
+    margin-top: 0.9rem;
+  }
+  .hero h1 em{
+    font-style: italic; color: var(--clay-dark); font-weight:500;
+  }
+  .hero p.lede{
+    margin-top: 1.4rem; max-width: 30rem;
+    font-size: 1.08rem; line-height:1.6; color: rgba(36,33,29,0.78);
+  }
+  .hero-actions{ margin-top: 2.1rem; display:flex; gap:1rem; flex-wrap:wrap; }
+  .btn-primary{
+    background: var(--clay); color: var(--marsh-dark);
+    padding: 0.85rem 1.6rem; border-radius: 999px;
+    text-decoration:none; font-weight:600; font-size:0.95rem;
+    box-shadow: 0 8px 24px -8px rgba(224,142,109,0.65);
+    transition: transform .2s ease;
+  }
+  .btn-primary:hover{ transform: translateY(-2px); }
+  .btn-ghost{
+    border: 1.5px solid var(--marsh); color: var(--marsh);
+    padding: 0.85rem 1.6rem; border-radius: 999px;
+    text-decoration:none; font-weight:600; font-size:0.95rem;
+  }
+
+  /* Signature: grooming claim-ticket card */
+  .ticket{
+    background: var(--marsh);
+    color: var(--sand-light);
+    border-radius: 22px;
+    padding: 1.9rem 1.7rem;
+    position: relative;
+    box-shadow: 0 24px 50px -18px rgba(47,71,57,0.55);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .ticket::before, .ticket::after{
+    content:"";
+    position:absolute; width:26px; height:26px; border-radius:50%;
+    background: var(--sand-light); top: 50%; transform: translateY(-50%);
+  }
+  .ticket::before{ left:-13px; }
+  .ticket::after{ right:-13px; }
+  .ticket-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    padding-bottom: 1rem; margin-bottom: 1rem;
+    border-bottom: 1.5px dashed rgba(248,243,234,0.35);
+  }
+  .ticket-top .label{ font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; opacity:0.65; }
+  .ticket-top .num{ font-family:'Fraunces', serif; font-size:1.8rem; font-weight:600; }
+  .ticket-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding: 0.55rem 0; font-size:0.85rem;
+  }
+  .ticket-row + .ticket-row{ border-top: 1px solid rgba(248,243,234,0.15); }
+  .ticket-row .name{ font-family:'Work Sans', sans-serif; font-weight:500; }
+  .ticket-row .price{ color: var(--clay); }
+  .ticket-foot{
+    margin-top:1.2rem; padding-top:1.1rem;
+    border-top: 1.5px dashed rgba(248,243,234,0.35);
+    font-size: 0.72rem; letter-spacing:0.08em; text-transform:uppercase; opacity:0.7;
+    display:flex; justify-content:space-between;
+  }
+
+  /* ---------- SECTION shell ---------- */
+  section{ padding: clamp(3.5rem, 7vw, 6rem) clamp(1.2rem, 4vw, 3.5rem); }
+  .section-inner{ max-width:1200px; margin:0 auto; }
+  .section-head{ max-width: 40rem; margin-bottom: 3rem; }
+  .section-head h2{ font-size: clamp(2rem, 3.6vw, 2.7rem); font-weight:600; margin-top:0.6rem; }
+  .section-head p{ margin-top:1rem; color: rgba(36,33,29,0.72); line-height:1.6; }
+
+  /* ---------- SERVICES ---------- */
+  .services{ background: var(--marsh); color: var(--sand-light); }
+  .services .eyebrow{ color: var(--teal); }
+  .service-grid{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+    gap: 1.4px; background: rgba(248,243,234,0.15);
+    border: 1px solid rgba(248,243,234,0.15); border-radius: 18px; overflow:hidden;
+  }
+  .service-card{
+    background: var(--marsh); padding: 2.1rem 1.7rem;
+    transition: background .25s ease;
+  }
+  .service-card:hover{ background: var(--marsh-dark); }
+  .service-card .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.7rem;
+    letter-spacing:0.1em; text-transform:uppercase; color: var(--clay);
+  }
+  .service-card h3{ font-size:1.35rem; font-weight:600; margin-top:0.8rem; }
+  .service-card p{ font-size:0.9rem; line-height:1.55; color: rgba(248,243,234,0.72); margin-top:0.7rem; }
+  .service-card .price{
+    margin-top:1.1rem; font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem; color: var(--sand-light); opacity:0.85;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,4.5rem);
+    align-items:center;
+  }
+  .about-figure{
+    aspect-ratio: 4/3; border-radius: 20px;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(110,158,140,0.5), transparent 60%),
+      linear-gradient(135deg, var(--sand) 0%, var(--teal) 140%);
+    position:relative; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .about-figure svg{ width:46%; opacity:0.9; }
+  .about-copy p{ line-height:1.75; color: rgba(36,33,29,0.78); margin-top:1.1rem; }
+  .about-stats{ display:flex; gap: 2.2rem; margin-top:2rem; }
+  .about-stats div strong{
+    display:block; font-family:'Fraunces', serif; font-size:1.9rem; color: var(--marsh);
+  }
+  .about-stats div span{ font-size:0.78rem; color: rgba(36,33,29,0.6); }
+
+  /* ---------- HOURS / LOCATION ---------- */
+  .hours{ background: var(--sand); }
+  .hours-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,4rem);
+  }
+  .hours-list{ font-family:'IBM Plex Mono', monospace; font-size:0.92rem; }
+  .hours-row{
+    display:flex; justify-content:space-between; padding: 0.75rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .hours-row.closed{ opacity:0.5; }
+  .map-card{
+    border-radius: 20px; overflow:hidden; border: 1px solid var(--line);
+    background: var(--sand-light);
+    display:flex; flex-direction:column;
+  }
+  .map-visual{
+    height: 180px;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 22px, rgba(47,71,57,0.08) 23px),
+      repeating-linear-gradient(90deg, transparent, transparent 22px, rgba(47,71,57,0.08) 23px),
+      var(--teal);
+    position:relative;
+  }
+  .map-pin{
+    position:absolute; left:50%; top:50%; transform: translate(-50%,-60%);
+    width:34px; height:34px;
+  }
+  .map-info{ padding: 1.4rem 1.5rem; }
+  .map-info .eyebrow{ margin-bottom:0.5rem; }
+  .map-info address{ font-style:normal; line-height:1.6; }
+
+  /* ---------- CTA BAND ---------- */
+  .cta-band{
+    background: var(--clay); color: var(--marsh-dark);
+    text-align:center; padding: clamp(3.5rem,7vw,5.5rem) 1.5rem;
+  }
+  .cta-band h2{ font-size: clamp(2rem,4vw,3rem); font-weight:600; }
+  .cta-band p{ margin-top:0.8rem; font-size:1.05rem; opacity:0.85; }
+  .cta-band .btn-primary{
+    background: var(--marsh); color: var(--sand-light);
+    box-shadow: 0 8px 24px -8px rgba(47,71,57,0.55);
+    margin-top:1.8rem; display:inline-block;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background: var(--marsh-dark); color: rgba(248,243,234,0.75);
+    padding: 3rem clamp(1.2rem,4vw,3.5rem) 2rem;
+  }
+  .footer-grid{
+    max-width:1200px; margin:0 auto;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:2rem;
+    padding-bottom: 2rem; border-bottom: 1px solid rgba(248,243,234,0.12);
+  }
+  .footer-brand{ font-family:'Fraunces', serif; color: var(--sand-light); font-size:1.2rem; font-weight:600; }
+  .footer-cols{ display:flex; gap: 3.5rem; flex-wrap:wrap; }
+  .footer-col h4{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    letter-spacing:0.1em; text-transform:uppercase; color: var(--teal);
+    margin-bottom: 0.9rem;
+  }
+  .footer-col a, .footer-col p{
+    display:block; font-size:0.9rem; text-decoration:none;
+    margin-bottom: 0.55rem; color: rgba(248,243,234,0.75);
+  }
+  .footer-bottom{
+    max-width:1200px; margin: 1.5rem auto 0;
+    font-size: 0.78rem; opacity:0.55; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;
+  }
+
+  @media (max-width: 860px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .about-grid{ grid-template-columns: 1fr; }
+    .about-figure{ order:-1; }
+    .hours-grid{ grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    * { transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <span class="mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="15" r="3.2"/>
+        <circle cx="6" cy="7" r="1.8"/>
+        <circle cx="18" cy="7" r="1.8"/>
+        <circle cx="4.5" cy="12.5" r="1.6"/>
+        <circle cx="19.5" cy="12.5" r="1.6"/>
+      </svg>
+    </span>
+    Puppy Fresh Grooming
+  </div>
+  <div class="nav-links-wrap">
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-cta" href="tel:3363913547">Book a Slot</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Mt Pleasant, South Carolina</span>
+      <h1>Wash, trim,<br>and a little <em>lowcountry</em> shine.</h1>
+      <p class="lede">Puppy Fresh Grooming is a neighborhood grooming studio for dogs of every size and coat. No rush, no cages left running &mdash; just a calm space, gentle handling, and a pup who walks out looking (and smelling) their absolute best.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="tel:3363913547">Call (336) 391-3547</a>
+        <a class="btn-ghost" href="#services">See services</a>
+      </div>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-top">
+        <div>
+          <div class="label">Claim ticket</div>
+          <div class="num">No. 014</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="label">Est. time</div>
+          <div class="num" style="font-size:1.1rem;">75 min</div>
+        </div>
+      </div>
+      <div class="ticket-row"><span class="name">Bath &amp; brush-out</span><span class="price">$35+</span></div>
+      <div class="ticket-row"><span class="name">Full groom &amp; trim</span><span class="price">$65+</span></div>
+      <div class="ticket-row"><span class="name">Nail trim &amp; ear clean</span><span class="price">$15</span></div>
+      <div class="ticket-row"><span class="name">De-shed treatment</span><span class="price">$20+</span></div>
+      <div class="ticket-foot">
+        <span>Pickup by leash only</span>
+        <span>PFG &middot; SC</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="services" class="services">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">The menu</span>
+      <h2>Every visit, priced plainly.</h2>
+      <p>Pricing flexes a bit with coat length and temperament &mdash; we'll always confirm before we start. Nothing gets added to your ticket without asking first.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <span class="tag">Everyday</span>
+        <h3>Bath &amp; Brush-Out</h3>
+        <p>Deshedding shampoo, blow-dry, and a full brush-out to keep the coat mat-free between full grooms.</p>
+        <div class="price">from $35</div>
+      </div>
+      <div class="service-card">
+        <span class="tag">Signature</span>
+        <h3>Full Groom &amp; Trim</h3>
+        <p>Bath, breed-appropriate cut or trim, nail trim, ear cleaning, and a finishing spritz.</p>
+        <div class="price">from $65</div>
+      </div>
+      <div class="service-card">
+        <span class="tag">Quick stop</span>
+        <h3>Nail Trim &amp; Ear Clean</h3>
+        <p>In and out in about fifteen minutes &mdash; no appointment needed most weekdays.</p>
+        <div class="price">$15</div>
+      </div>
+      <div class="service-card">
+        <span class="tag">Heavy coat</span>
+        <h3>De-Shed Treatment</h3>
+        <p>An extra deshedding pass built for double coats &mdash; huskies, labs, and shepherds welcome.</p>
+        <div class="price">from $20</div>
+      </div>
+      <div class="service-card">
+        <span class="tag">First visit</span>
+        <h3>Puppy Intro Groom</h3>
+        <p>A short, gentle first session for pups under six months, built to make grooming feel normal early.</p>
+        <div class="price">$25</div>
+      </div>
+      <div class="service-card">
+        <span class="tag">Add-on</span>
+        <h3>Teeth &amp; Paw Balm</h3>
+        <p>A quick teeth brushing and paw pad conditioning, added to any groom on request.</p>
+        <div class="price">+$10</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-inner about-grid">
+    <div class="about-figure">
+      <svg viewBox="0 0 200 200" fill="none">
+        <path d="M100 150c-28 0-48-16-48-40 0-16 10-26 22-30-4-8-6-18-2-26 8 2 16 8 20 16 5-2 10-2 16 0 4-8 12-14 20-16 4 8 2 18-2 26 12 4 22 14 22 30 0 24-20 40-48 40z"
+          fill="var(--marsh)" opacity="0.85"/>
+        <circle cx="86" cy="120" r="5" fill="var(--sand-light)"/>
+        <circle cx="114" cy="120" r="5" fill="var(--sand-light)"/>
+        <path d="M92 132q8 8 16 0" stroke="var(--sand-light)" stroke-width="3" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow">Who's behind the tub</span>
+      <h2 style="font-size: clamp(1.9rem, 3.2vw, 2.5rem); font-weight:600; margin-top:0.6rem;">Local, leash-trained, and genuinely fond of dogs.</h2>
+      <p>Puppy Fresh Grooming started as a one-tub operation in Mt Pleasant and stayed that way on purpose. Every dog gets full attention from arrival to pickup &mdash; no back-to-back double-booking, no dogs left waiting in a kennel for hours.</p>
+      <p>We work with nervous first-timers, senior dogs who need a slower pace, and regulars who just want their monthly wash-and-go. If your dog has a quirk, tell us &mdash; we'll plan around it.</p>
+      <div class="about-stats">
+        <div><strong>7+</strong><span>years grooming locally</span></div>
+        <div><strong>1</strong><span>dog on the table at a time</span></div>
+        <div><strong>All</strong><span>coat types &amp; sizes</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit" class="hours">
+  <div class="section-inner hours-grid">
+    <div>
+      <span class="eyebrow">Studio hours</span>
+      <h2 style="font-size: clamp(1.9rem, 3.2vw, 2.5rem); font-weight:600; margin-top:0.6rem; margin-bottom:1.6rem;">Open six days a week.</h2>
+      <div class="hours-list">
+        <div class="hours-row"><span>Monday &ndash; Friday</span><span>8:00a &ndash; 5:30p</span></div>
+        <div class="hours-row"><span>Saturday</span><span>9:00a &ndash; 3:00p</span></div>
+        <div class="hours-row closed"><span>Sunday</span><span>Closed</span></div>
+      </div>
+    </div>
+
+    <div class="map-card">
+      <div class="map-visual">
+        <svg class="map-pin" viewBox="0 0 24 24" fill="var(--clay)">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/>
+        </svg>
+      </div>
+      <div class="map-info">
+        <span class="eyebrow">Find us</span>
+        <address>
+          Puppy Fresh Grooming<br>
+          Mt Pleasant, SC
+        </address>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>Let's get that coat looking sharp.</h2>
+  <p>Call or email to grab a slot &mdash; walk-ins welcome for nail trims.</p>
+  <a class="btn-primary" href="tel:3363913547">Call (336) 391-3547</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Puppy Fresh Grooming</div>
+      <p style="margin-top:0.6rem; max-width:20rem; font-size:0.88rem;">A neighborhood grooming studio in Mt Pleasant, SC.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:3363913547">(336) 391-3547</a>
+        <a href="mailto:puppyfreshgrooming@gmail.com">puppyfreshgrooming@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Studio</h4>
+        <p>Mt Pleasant, SC</p>
+        <p>Mon&ndash;Tue 8a&ndash;5:30p</p>
+      </div>
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#visit">Hours &amp; location</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Puppy Fresh Grooming</span>
+    <span>Made with care for good dogs</span>
+  </div>
+</footer>
+
+</body>
+</html>
