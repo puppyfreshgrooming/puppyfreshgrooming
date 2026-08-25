@@ -3,90 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Puppy Fresh Grooming | Coming Soon</title>
+<title>Puppy Fresh Grooming — Coming Soon</title>
+<meta name="description" content="Puppy Fresh Grooming is getting a fresh new look. Relax. Refresh. Repeat. Coming soon.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --marsh: #2F4739;
-    --marsh-dark: #223228;
-    --sand-light: #F8F3EA;
-    --clay: #E08E6D;
-    --clay-dark: #C97650;
-    --teal: #6E9E8C;
-    --ink: #24211D;
+    --ink:#0e1016;
+    --night:#1b0e2e;
+    --dusk:#3a1f5e;
+    --sunset-purple:#5a3aa8;
+    --sunset-violet:#8b4fc9;
+    --sunset-pink:#e72cc8;
+    --sunset-orange:#e8956b;
+    --cyan:#34cef0;
+    --pale-pink:#f6d9ef;
+    --foam:#eaf9fd;
   }
-  *{ box-sizing:border-box; }
-  html,body{ height:100%; margin:0; }
+
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
   body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    font-family:'Quicksand',sans-serif;
+    color:var(--foam);
+    overflow-x:hidden;
+    position:relative;
     background:
-      radial-gradient(ellipse at 20% 15%, rgba(110,158,140,0.35), transparent 55%),
-      radial-gradient(ellipse at 85% 85%, rgba(224,142,109,0.22), transparent 50%),
-      var(--marsh);
-    color: var(--sand-light);
-    font-family: 'Work Sans', sans-serif;
-    display:flex; align-items:center; justify-content:center;
+      radial-gradient(120% 90% at 50% 12%, var(--sunset-orange) 0%, var(--sunset-pink) 32%, var(--sunset-violet) 58%, var(--dusk) 78%, var(--night) 100%);
+  }
+
+  /* Palm skyline silhouette along the bottom, echoing the logo's backdrop */
+  .skyline{
+    position:fixed;
+    left:0; right:0; bottom:0;
+    height:22vh;
+    min-height:150px;
+    background:var(--night);
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 260' preserveAspectRatio='none'><path d='M0,260 L0,140 Q40,120 55,90 Q60,70 45,60 Q65,55 75,68 Q85,50 78,35 Q95,45 92,65 Q110,55 105,75 L120,72 Q130,95 105,110 L110,140 L200,140 L200,150 Q220,130 235,100 Q240,80 225,70 Q245,65 255,78 Q265,60 258,45 Q275,55 272,75 Q290,65 285,85 L300,82 Q310,105 285,120 L290,150 L400,150 L400,130 Q420,110 435,80 Q440,60 425,50 Q445,45 455,58 Q465,40 458,25 Q475,35 472,55 Q490,45 485,65 L500,62 Q510,85 485,100 L490,130 L620,130 L620,155 Q640,135 655,105 Q660,85 645,75 Q665,70 675,83 Q685,65 678,50 Q695,60 692,80 Q710,70 705,90 L720,87 Q730,110 705,125 L710,155 L860,155 L860,125 Q880,105 895,75 Q900,55 885,45 Q905,40 915,53 Q925,35 918,20 Q935,30 932,50 Q950,40 945,60 L960,57 Q970,80 945,95 L950,125 L1100,125 L1100,148 Q1120,128 1135,98 Q1140,78 1125,68 Q1145,63 1155,76 Q1165,58 1158,43 Q1175,53 1172,73 Q1190,63 1185,83 L1200,80 Q1210,103 1185,118 L1190,148 L1330,148 L1330,120 Q1350,100 1365,70 Q1370,50 1355,40 Q1375,35 1385,48 Q1395,30 1388,15 Q1405,25 1402,45 Q1420,35 1415,55 L1430,52 Q1440,75 1415,90 L1420,120 L1600,120 L1600,260 Z' fill='black'/></svg>") bottom / 100% 100% no-repeat;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 260' preserveAspectRatio='none'><path d='M0,260 L0,140 Q40,120 55,90 Q60,70 45,60 Q65,55 75,68 Q85,50 78,35 Q95,45 92,65 Q110,55 105,75 L120,72 Q130,95 105,110 L110,140 L200,140 L200,150 Q220,130 235,100 Q240,80 225,70 Q245,65 255,78 Q265,60 258,45 Q275,55 272,75 Q290,65 285,85 L300,82 Q310,105 285,120 L290,150 L400,150 L400,130 Q420,110 435,80 Q440,60 425,50 Q445,45 455,58 Q465,40 458,25 Q475,35 472,55 Q490,45 485,65 L500,62 Q510,85 485,100 L490,130 L620,130 L620,155 Q640,135 655,105 Q660,85 645,75 Q665,70 675,83 Q685,65 678,50 Q695,60 692,80 Q710,70 705,90 L720,87 Q730,110 705,125 L710,155 L860,155 L860,125 Q880,105 895,75 Q900,55 885,45 Q905,40 915,53 Q925,35 918,20 Q935,30 932,50 Q950,40 945,60 L960,57 Q970,80 945,95 L950,125 L1100,125 L1100,148 Q1120,128 1135,98 Q1140,78 1125,68 Q1145,63 1155,76 Q1165,58 1158,43 Q1175,53 1172,73 Q1190,63 1185,83 L1200,80 Q1210,103 1185,118 L1190,148 L1330,148 L1330,120 Q1350,100 1365,70 Q1370,50 1355,40 Q1375,35 1385,48 Q1395,30 1388,15 Q1405,25 1402,45 Q1420,35 1415,55 L1430,52 Q1440,75 1415,90 L1420,120 L1600,120 L1600,260 Z' fill='black'/></svg>") bottom / 100% 100% no-repeat;
+    opacity:0.55;
+    pointer-events:none;
+    z-index:1;
+  }
+
+  /* Rising bubbles, matching the tub scene in the logo */
+  .bubbles{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+  }
+  .bubble{
+    position:absolute;
+    bottom:-10%;
+    border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, rgba(255,255,255,0.95), rgba(255,255,255,0.15) 45%, rgba(52,206,240,0.12) 70%);
+    border:1.5px solid rgba(255,255,255,0.55);
+    box-shadow:0 0 12px rgba(52,206,240,0.35);
+    animation-name: rise;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  @keyframes rise{
+    0%{ transform:translateY(0) translateX(0); opacity:0; }
+    8%{ opacity:0.9; }
+    92%{ opacity:0.7; }
+    100%{ transform:translateY(-115vh) translateX(var(--drift,20px)); opacity:0; }
+  }
+
+  main{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
     text-align:center;
-    padding: 2rem;
+    padding:6vh 6vw 8vh;
+    max-width:720px;
   }
-  .wrap{ max-width: 40rem; }
-  .mark{
-    width:64px; height:64px; border-radius:50%;
-    background: var(--sand-light);
-    display:flex; align-items:center; justify-content:center;
-    margin: 0 auto 1.6rem;
+
+  .logo{
+    width:300px;
+    max-width:58vw;
+    height:auto;
+    filter:drop-shadow(0 14px 30px rgba(14,16,22,0.45));
+    animation:bob 5s ease-in-out infinite;
   }
-  .mark svg{ width:32px; height:32px; color: var(--marsh); }
+  @keyframes bob{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-10px); }
+  }
+
   .eyebrow{
-    font-family:'IBM Plex Mono', monospace; font-size:0.75rem;
-    letter-spacing:0.16em; text-transform:uppercase; color: var(--clay);
+    margin-top:1.6rem;
+    font-family:'Quicksand',sans-serif;
+    font-weight:700;
+    letter-spacing:0.42em;
+    text-transform:uppercase;
+    font-size:0.72rem;
+    color:var(--cyan);
+    text-shadow:0 0 14px rgba(52,206,240,0.6);
   }
+
   h1{
-    font-family:'Fraunces', serif; font-weight:600;
-    font-size: clamp(2.4rem, 6vw, 4rem); line-height:1.05;
-    margin: 1rem 0 1.2rem;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size:clamp(2.6rem, 8vw, 4.6rem);
+    line-height:1.02;
+    margin:0.5rem 0 0.9rem;
+    background:linear-gradient(90deg, var(--sunset-pink) 0%, var(--pale-pink) 35%, var(--cyan) 70%, var(--sunset-pink) 100%);
+    background-size:220% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:shine 7s linear infinite;
+    text-shadow:0 6px 24px rgba(231,44,200,0.25);
   }
-  h1 em{ font-style:italic; color: var(--clay); font-weight:500; }
-  p.lede{
-    font-size: 1.05rem; line-height:1.6; color: rgba(248,243,234,0.78);
-    max-width: 30rem; margin: 0 auto;
+  @keyframes shine{
+    to{ background-position:220% center; }
   }
-  .contact{
-    margin-top: 2.4rem; display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap;
+
+  .tagline{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:clamp(1rem, 2.6vw, 1.35rem);
+    color:var(--pale-pink);
+    display:flex;
+    align-items:center;
+    gap:0.6em;
+    margin:0 0 1.6rem;
   }
-  .contact a{
-    color: var(--sand-light); text-decoration:none;
-    font-family:'IBM Plex Mono', monospace; font-size:0.85rem;
-    border-bottom: 1px solid rgba(248,243,234,0.35);
-    padding-bottom: 2px;
+  .tagline .dot{
+    width:6px; height:6px; border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 8px var(--cyan);
   }
-  .contact a:hover{ border-color: var(--clay); }
-  .location{
-    margin-top: 2rem; font-family:'IBM Plex Mono', monospace;
-    font-size: 0.78rem; letter-spacing:0.08em; text-transform:uppercase;
-    color: rgba(248,243,234,0.55);
+
+  p.sub{
+    font-size:1.05rem;
+    line-height:1.6;
+    color:var(--foam);
+    opacity:0.92;
+    max-width:46ch;
+    margin:0 0 2.2rem;
+  }
+
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:0.55rem;
+    padding:0.75rem 1.6rem;
+    border-radius:999px;
+    background:rgba(14,16,22,0.35);
+    border:1.5px solid rgba(255,255,255,0.35);
+    backdrop-filter:blur(6px);
+    font-weight:600;
+    font-size:0.95rem;
+    color:var(--foam);
+  }
+  .pill .paw{
+    width:1.05em; height:1.05em;
+    display:inline-block;
+  }
+
+  footer{
+    position:relative;
+    z-index:2;
+    margin-top:2.4rem;
+    font-size:0.8rem;
+    letter-spacing:0.04em;
+    color:rgba(246,217,239,0.65);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .logo, h1, .bubble{ animation:none !important; }
   }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="mark">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="15" r="3.2"/>
-        <circle cx="6" cy="7" r="1.8"/>
-        <circle cx="18" cy="7" r="1.8"/>
-        <circle cx="4.5" cy="12.5" r="1.6"/>
-        <circle cx="19.5" cy="12.5" r="1.6"/>
+
+  <div class="skyline" aria-hidden="true"></div>
+  <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+  <main>
+    <img class="logo" src="PPG_Logo.png" alt="Puppy Fresh Grooming logo — two dogs in a bubble bath">
+
+    <p class="eyebrow">A fresh look is on the way</p>
+    <h1>Coming&nbsp;Soon</h1>
+    <p class="tagline">Relax <span class="dot"></span> Refresh <span class="dot"></span> Repeat</p>
+
+    <p class="sub">
+      We're giving Puppy Fresh Grooming a brand-new home online — same pampered
+      pups, same gentle care, just a fresh coat of paint on the website.
+      Check back soon!
+    </p>
+
+    <div class="pill">
+      <svg class="paw" viewBox="0 0 64 64" fill="var(--sunset-pink)" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="20" cy="18" rx="7" ry="9"/>
+        <ellipse cx="34" cy="12" rx="6.5" ry="8.5"/>
+        <ellipse cx="48" cy="18" rx="7" ry="9"/>
+        <ellipse cx="42" cy="32" rx="7.5" ry="9.5"/>
+        <path d="M32 30c11 0 18 8 18 17 0 8-6 12-14 12-3 0-4-2-4-2s-1 2-4 2c-8 0-14-4-14-12 0-9 7-17 18-17z"/>
       </svg>
+      <span>Booking will reopen at launch</span>
     </div>
-    <span class="eyebrow">Puppy Fresh Grooming</span>
-    <h1>Something <em>fresh</em> is on the way.</h1>
-    <p class="lede">We're putting the finishing touches on our new site. In the meantime, feel free to reach out to book a grooming appointment.</p>
-    <div class="contact">
-      <a href="mailto:puppyfreshgrooming@gmail.com">puppyfreshgrooming@gmail.com</a>
-    </div>
-    <div class="location">Mt Pleasant, South Carolina</div>
-  </div>
+  </main>
+
+  <footer>&copy; <span id="year"></span> Puppy Fresh Grooming</footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Generate rising bubbles matching the logo's bath scene
+    const field = document.getElementById('bubbles');
+    const BUBBLE_COUNT = 22;
+    for (let i = 0; i < BUBBLE_COUNT; i++) {
+      const b = document.createElement('div');
+      b.className = 'bubble';
+      const size = 8 + Math.random() * 34;
+      const left = Math.random() * 100;
+      const duration = 9 + Math.random() * 10;
+      const delay = Math.random() * -duration;
+      const drift = (Math.random() * 80 - 40) + 'px';
+      b.style.width = size + 'px';
+      b.style.height = size + 'px';
+      b.style.left = left + 'vw';
+      b.style.setProperty('--drift', drift);
+      b.style.animationDuration = duration + 's';
+      b.style.animationDelay = delay + 's';
+      field.appendChild(b);
+    }
+  </script>
 </body>
 </html>
