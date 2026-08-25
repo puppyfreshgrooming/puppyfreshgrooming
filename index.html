@@ -174,6 +174,36 @@
     display:inline-block;
   }
 
+  .contact{
+    margin-top:1.4rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:0.6em;
+    font-size:0.92rem;
+    color:var(--foam);
+    opacity:0.85;
+  }
+  .contact-link{
+    display:inline-flex;
+    align-items:center;
+    gap:0.4em;
+    color:inherit;
+    text-decoration:none;
+    transition:color 0.2s ease;
+  }
+  a.contact-link:hover{
+    color:var(--cyan);
+  }
+  .contact-link svg{
+    width:1em; height:1em;
+    flex-shrink:0;
+  }
+  .contact-sep{
+    opacity:0.5;
+  }
+
   footer{
     position:relative;
     z-index:2;
@@ -215,6 +245,18 @@
         <path d="M32 30c11 0 18 8 18 17 0 8-6 12-14 12-3 0-4-2-4-2s-1 2-4 2c-8 0-14-4-14-12 0-9 7-17 18-17z"/>
       </svg>
       <span>Booking will reopen at launch</span>
+    </div>
+
+    <div class="contact">
+      <a class="contact-link" href="mailto:puppyfreshgrooming@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+        <span>puppyfreshgrooming@gmail.com</span>
+      </a>
+      <span class="contact-sep">&bull;</span>
+      <span class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.2A7 7 0 0 1 19 9.8C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+        <span>Mt. Pleasant, South Carolina</span>
+      </span>
     </div>
   </main>
 
