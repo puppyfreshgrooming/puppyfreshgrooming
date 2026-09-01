@@ -86,9 +86,9 @@
   .page{
     position:relative;
     z-index:2;
-    max-width:820px;
+    max-width:1040px;
     margin:0 auto;
-    padding:2rem 5vw 4rem;
+    padding:2rem 3vw 4rem;
   }
 
   /* ---- Header ---- */
@@ -131,6 +131,9 @@
     margin:0 auto;
   }
 
+  /* The form needs the extra width; the header copy does not */
+  .masthead{ max-width:640px; margin:0 auto; }
+
   /* ---- What happens next ---- */
 
   .flow{
@@ -168,7 +171,7 @@
     border-radius:26px;
     border:2px solid rgba(255,255,255,0.6);
     box-shadow:0 24px 60px rgba(14,16,22,0.45);
-    padding:1.25rem;
+    padding:0.75rem;
     overflow:hidden;
   }
   .tub iframe{
@@ -282,7 +285,7 @@
         allow="geolocation; microphone; camera; fullscreen"
         src="https://form.jotform.com/262434011492045"
         frameborder="0"
-        scrolling="no"
+        scrolling="auto"
       ></iframe>
     </main>
 
