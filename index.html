@@ -220,6 +220,38 @@
     padding:1.5rem 1.7rem;
   }
 
+  /* instagram callout */
+  .gram{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:1.6rem;
+    align-items:center;
+    padding:1.8rem 2rem;
+    background:
+      linear-gradient(120deg, rgba(231,44,200,0.22), rgba(52,206,240,0.14) 70%),
+      var(--glass);
+    border:1.5px solid rgba(255,255,255,0.34);
+    border-radius:24px;
+    backdrop-filter:blur(6px);
+  }
+  .gram-badge{
+    width:4.6rem;height:4.6rem;
+    display:grid;place-items:center;
+    border-radius:50%;
+    color:#fff;
+    background:radial-gradient(circle at 30% 25%, rgba(255,255,255,0.55), rgba(231,44,200,0.9) 55%, rgba(139,79,201,0.95));
+    border:1.5px solid rgba(255,255,255,0.55);
+    box-shadow:0 0 20px rgba(231,44,200,0.5);
+  }
+  .gram-badge svg{width:2.3rem;height:2.3rem;}
+  .gram h2{margin-bottom:0.3rem;}
+  .gram p{margin:0;opacity:0.9;font-size:0.98rem;max-width:52ch;}
+  .gram-handle{
+    display:block;
+    font-family:'Baloo 2',sans-serif;font-weight:700;
+    color:var(--cyan);margin-top:0.5rem;font-size:0.95rem;
+  }
+
   /* services */
   .services{
     display:grid;
@@ -318,6 +350,8 @@
     .hero-copy p{margin-inline:auto;}
     .hero-actions{justify-content:center;}
     .steps{grid-template-columns:1fr;}
+    .gram{grid-template-columns:1fr;justify-items:center;text-align:center;gap:1.1rem;padding:2rem 1.4rem;}
+    .gram p{margin-inline:auto;}
     nav a:not(.btn){display:none;}
     .brandmark span{display:none;}
   }
@@ -382,6 +416,23 @@
         </div>
       </div>
     </div>
+
+    <section id="gallery" class="wrap">
+      <div class="gram">
+        <span class="gram-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <div>
+          <h2>See who's been freshly groomed</h2>
+          <p>Every fluffy before-and-after lives on our Instagram — real dogs, real coats, real haircuts. Have a scroll and see what your pup could look like.</p>
+          <span class="gram-handle">@puppyfreshgrooming</span>
+        </div>
+        <a class="btn" href="https://www.instagram.com/puppyfreshgrooming/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+          <span>Browse the pups</span>
+        </a>
+      </div>
+    </section>
 
     <section id="services" class="wrap">
       <div class="section-head">
