@@ -3,8 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Puppy Fresh Grooming — Coming Soon</title>
-<meta name="description" content="Puppy Fresh Grooming is getting a fresh new look. Relax. Refresh. Repeat. Coming soon.">
+<title>Puppy Fresh Grooming — In-Home Dog Grooming in Mt. Pleasant, SC</title>
+<meta name="description" content="In-home concierge dog grooming in Mt. Pleasant, South Carolina. Full grooms, bath and brush, haircuts, and nail trims — done in your home. Relax. Refresh. Repeat.">
+<link rel="canonical" href="https://puppyfreshgrooming.com/index.html">
+<meta property="og:title" content="Puppy Fresh Grooming — In-Home Dog Grooming in Mt. Pleasant, SC">
+<meta property="og:description" content="In-home concierge dog grooming in Mt. Pleasant, South Carolina. Relax. Refresh. Repeat.">
+<meta property="og:image" content="https://puppyfreshgrooming.com/PPG_Logo.png">
+<meta property="og:url" content="https://puppyfreshgrooming.com/index.html">
+<meta property="og:type" content="website">
+<link rel="icon" href="PPG_Logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
@@ -20,21 +27,32 @@
     --cyan:#34cef0;
     --pale-pink:#f6d9ef;
     --foam:#eaf9fd;
+    --glass:rgba(14,16,22,0.32);
+    --glass-edge:rgba(255,255,255,0.28);
   }
 
   *{box-sizing:border-box;}
-  html,body{height:100%;}
+
+  html{scroll-behavior:smooth;}
+
   body{
     margin:0;
     min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+    background:var(--night);
     font-family:'Quicksand',sans-serif;
+    font-size:17px;
+    line-height:1.6;
     color:var(--foam);
     overflow-x:hidden;
-    position:relative;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- fixed sunset backdrop ---------- */
+  .sky{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
     background:
       radial-gradient(120% 90% at 50% 12%, var(--sunset-orange) 0%, var(--sunset-pink) 32%, var(--sunset-violet) 58%, var(--dusk) 78%, var(--night) 100%);
   }
@@ -79,21 +97,88 @@
     100%{ transform:translateY(-115vh) translateX(var(--drift,20px)); opacity:0; }
   }
 
-  main{
-    position:relative;
-    z-index:2;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    padding:6vh 6vw 8vh;
-    max-width:720px;
+  /* ---------- shared type ---------- */
+  h1,h2,h3{font-family:'Baloo 2',sans-serif;margin:0;}
+  h1{
+    font-weight:800;
+    font-size:clamp(2.2rem,6.4vw,3.5rem);
+    line-height:1.05;
+    color:var(--pale-pink);
+    text-shadow:0 6px 24px rgba(231,44,200,0.3);
+    margin-bottom:0.9rem;
   }
+  h2{
+    font-weight:800;
+    font-size:clamp(1.6rem,3.6vw,2.3rem);
+    line-height:1.15;
+    color:var(--pale-pink);
+    margin-bottom:0.6rem;
+  }
+  h3{font-weight:700;font-size:1.12rem;line-height:1.3;color:var(--cyan);margin-bottom:0.35rem;}
+  p{margin:0 0 1rem;max-width:62ch;}
 
-  .logo{
-    width:300px;
-    max-width:58vw;
-    height:auto;
+  a{color:var(--cyan);}
+  :focus-visible{outline:3px solid var(--cyan);outline-offset:3px;}
+
+  .wrap{width:min(1060px,92vw);margin-inline:auto;}
+  .content{position:relative;z-index:2;}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:0.55rem;
+    padding:0.85rem 1.9rem;
+    border-radius:999px;
+    font-family:'Quicksand',sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    text-decoration:none;
+    background:linear-gradient(135deg,var(--sunset-pink),var(--sunset-violet));
+    color:#fff;
+    border:1.5px solid rgba(255,255,255,0.4);
+    box-shadow:0 8px 26px rgba(231,44,200,0.35);
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(231,44,200,0.45);}
+  .btn-glass{
+    background:var(--glass);
+    color:var(--foam);
+    border:1.5px solid rgba(255,255,255,0.35);
+    backdrop-filter:blur(6px);
+    box-shadow:none;
+    transition:border-color 0.2s ease, color 0.2s ease;
+  }
+  .btn-glass:hover{transform:none;color:var(--cyan);border-color:var(--cyan);box-shadow:none;}
+  .btn svg{width:1.05em;height:1.05em;flex-shrink:0;}
+  .paw{width:1.05em;height:1.05em;flex-shrink:0;}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:5;
+    background:rgba(27,14,46,0.72);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.14);
+  }
+  .bar{display:flex;align-items:center;gap:1rem;padding:0.55rem 0;}
+  .brandmark{
+    display:flex;align-items:center;gap:0.6rem;
+    font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1.02rem;line-height:1.05;
+    color:var(--pale-pink);text-decoration:none;
+  }
+  .brandmark img{width:46px;height:46px;object-fit:contain;}
+  nav{margin-left:auto;display:flex;align-items:center;gap:1.5rem;}
+  nav a:not(.btn){color:var(--foam);text-decoration:none;font-weight:700;font-size:0.95rem;}
+  nav a:not(.btn):hover{color:var(--cyan);}
+  nav .btn{padding:0.6rem 1.4rem;font-size:0.95rem;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:4vh 0 6vh;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:2.5rem;align-items:center;}
+  .hero-logo{
+    width:100%;max-width:420px;display:block;margin-inline:auto;
     filter:drop-shadow(0 14px 30px rgba(14,16,22,0.45));
     animation:bob 5s ease-in-out infinite;
   }
@@ -101,171 +186,402 @@
     0%,100%{ transform:translateY(0); }
     50%{ transform:translateY(-10px); }
   }
-
   .eyebrow{
-    margin-top:1.6rem;
-    font-family:'Quicksand',sans-serif;
-    font-weight:700;
-    letter-spacing:0.42em;
-    text-transform:uppercase;
-    font-size:0.72rem;
-    color:var(--cyan);
-    text-shadow:0 0 14px rgba(52,206,240,0.6);
-  }
-
-  h1{
-    font-family:'Baloo 2', sans-serif;
-    font-weight:800;
-    font-size:clamp(2.6rem, 8vw, 4.6rem);
-    line-height:1.02;
-    margin:0.5rem 0 0.9rem;
-    background:linear-gradient(90deg, var(--sunset-pink) 0%, var(--pale-pink) 35%, var(--cyan) 70%, var(--sunset-pink) 100%);
-    background-size:220% auto;
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    animation:shine 7s linear infinite;
-    text-shadow:0 6px 24px rgba(231,44,200,0.25);
-  }
-  @keyframes shine{
-    to{ background-position:220% center; }
-  }
-
-  .tagline{
-    font-family:'Baloo 2', sans-serif;
-    font-weight:700;
-    font-size:clamp(1rem, 2.6vw, 1.35rem);
-    color:var(--pale-pink);
-    display:flex;
-    align-items:center;
-    gap:0.6em;
-    margin:0 0 1.6rem;
-  }
-  .tagline .dot{
-    width:6px; height:6px; border-radius:50%;
-    background:var(--cyan);
-    box-shadow:0 0 8px var(--cyan);
-  }
-
-  p.sub{
-    font-size:1.05rem;
-    line-height:1.6;
-    color:var(--foam);
-    opacity:0.92;
-    max-width:46ch;
-    margin:0 0 2.2rem;
-  }
-
-  .pill{
-    display:inline-flex;
-    align-items:center;
-    gap:0.55rem;
-    padding:0.75rem 1.6rem;
-    border-radius:999px;
-    background:rgba(14,16,22,0.35);
-    border:1.5px solid rgba(255,255,255,0.35);
-    backdrop-filter:blur(6px);
-    font-weight:600;
-    font-size:0.95rem;
-    color:var(--foam);
-  }
-  .pill .paw{
-    width:1.05em; height:1.05em;
     display:inline-block;
+    padding:0.35rem 1.1rem;
+    border-radius:999px;
+    background:var(--glass);
+    border:1.5px solid var(--glass-edge);
+    backdrop-filter:blur(6px);
+    font-weight:700;font-size:0.9rem;
+    color:var(--cyan);
+    margin-bottom:1.1rem;
+  }
+  .lede{font-size:1.08rem;opacity:0.92;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:0.8rem;margin:1.5rem 0 1.1rem;}
+  .hero-note{font-size:0.94rem;opacity:0.78;margin-bottom:0;}
+  .tagline{
+    font-family:'Baloo 2',sans-serif;font-weight:700;
+    font-size:1.05rem;letter-spacing:0.09em;
+    color:var(--cyan);margin-top:1.6rem;
+  }
+  .tagline span{color:var(--sunset-pink);}
+
+  /* ---------- sections ---------- */
+  section{padding:4.5vh 0;}
+  .section-head{max-width:56ch;margin-bottom:2rem;}
+  .section-head p{opacity:0.85;margin-bottom:0;}
+
+  .panel{
+    background:var(--glass);
+    border:1.5px solid var(--glass-edge);
+    border-radius:20px;
+    backdrop-filter:blur(6px);
+    padding:1.5rem 1.7rem;
   }
 
-  .contact{
-    margin-top:1.4rem;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:0.6em;
-    font-size:0.92rem;
-    color:var(--foam);
-    opacity:0.85;
+  /* services */
+  .services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(255px,1fr));
+    gap:1.1rem;
+    list-style:none;padding:0;margin:0;
   }
+  .services p{font-size:0.96rem;opacity:0.88;margin:0;}
+  .services .paw{color:var(--sunset-pink);margin-bottom:0.5rem;width:1.5rem;height:1.5rem;display:block;}
+  .services li:nth-child(3n+2) .paw{color:var(--cyan);}
+  .services li:nth-child(3n+3) .paw{color:var(--sunset-orange);}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+  .step{display:flex;gap:1rem;align-items:flex-start;}
+  .step-num{
+    flex:0 0 auto;
+    width:2.6rem;height:2.6rem;
+    display:grid;place-items:center;
+    border-radius:50%;
+    font-family:'Baloo 2',sans-serif;font-weight:800;font-size:1.2rem;
+    color:#fff;
+    background:radial-gradient(circle at 32% 28%, rgba(255,255,255,0.6), rgba(231,44,200,0.85) 60%, rgba(139,79,201,0.9));
+    border:1.5px solid rgba(255,255,255,0.55);
+    box-shadow:0 0 14px rgba(231,44,200,0.45);
+  }
+  .step p{font-size:0.96rem;opacity:0.88;margin:0;}
+
+  /* two-panel split */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;align-items:start;}
+  .split h2{font-size:clamp(1.4rem,2.6vw,1.8rem);}
+  .dots{list-style:none;margin:0 0 1rem;padding:0;display:flex;flex-direction:column;gap:0.7rem;}
+  .dots li{
+    display:flex;align-items:flex-start;gap:0.7rem;
+    font-size:0.96rem;line-height:1.5;opacity:0.9;
+  }
+  .dots li::before{
+    content:"";
+    flex:0 0 auto;
+    width:7px;height:7px;
+    margin-top:0.6em;
+    border-radius:50%;
+    background:var(--sunset-pink);
+    box-shadow:0 0 8px rgba(231,44,200,0.7);
+  }
+  .split p:last-child{margin-bottom:0;font-size:0.96rem;opacity:0.85;}
+
+  /* good to know */
+  .notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.6rem 2.2rem;}
+  .notes p{font-size:0.95rem;opacity:0.87;margin:0;}
+
+  /* cta */
+  .cta{
+    text-align:center;
+    border-radius:26px;
+    padding:3rem 1.6rem;
+    background:var(--glass);
+    border:1.5px solid var(--glass-edge);
+    backdrop-filter:blur(6px);
+  }
+  .cta p{margin-inline:auto;opacity:0.9;}
+  .cta .btn{margin-top:0.6rem;}
+
+  /* ---------- footer ---------- */
+  footer{
+    position:relative;z-index:2;
+    margin-top:4vh;
+    padding:2.6rem 0 2rem;
+    border-top:1px solid rgba(255,255,255,0.16);
+    background:rgba(14,16,22,0.35);
+    backdrop-filter:blur(6px);
+  }
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2rem;}
+  .foot-grid h3{color:var(--pale-pink);font-size:1rem;}
+  .foot-logo{width:120px;margin-bottom:0.8rem;}
+  .foot-grid p{font-size:0.94rem;opacity:0.85;margin:0;}
+  .contact-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.6rem;}
   .contact-link{
-    display:inline-flex;
-    align-items:center;
-    gap:0.4em;
-    color:inherit;
-    text-decoration:none;
+    display:inline-flex;align-items:center;gap:0.5em;
+    color:var(--foam);text-decoration:none;font-size:0.95rem;
     transition:color 0.2s ease;
   }
-  a.contact-link:hover{
-    color:var(--cyan);
-  }
-  .contact-link svg{
-    width:1em; height:1em;
-    flex-shrink:0;
-  }
-  .contact-sep{
-    opacity:0.5;
-  }
-
-  footer{
-    position:relative;
-    z-index:2;
-    margin-top:2.4rem;
-    font-size:0.8rem;
-    letter-spacing:0.04em;
+  a.contact-link:hover{color:var(--cyan);}
+  .contact-link svg{width:1.05em;height:1.05em;flex-shrink:0;}
+  .legal{
+    margin-top:2.2rem;padding-top:1.2rem;
+    border-top:1px solid rgba(255,255,255,0.14);
+    font-size:0.8rem;letter-spacing:0.04em;
     color:rgba(246,217,239,0.65);
   }
 
+  @media (max-width:880px){
+    .hero-grid,.split,.foot-grid{grid-template-columns:1fr;}
+    .hero-grid{gap:1.5rem;}
+    .hero-copy{text-align:center;}
+    .hero-copy p{margin-inline:auto;}
+    .hero-actions{justify-content:center;}
+    .steps{grid-template-columns:1fr;}
+    nav a:not(.btn){display:none;}
+    .brandmark span{display:none;}
+  }
+
   @media (prefers-reduced-motion: reduce){
-    .logo, h1, .bubble{ animation:none !important; }
+    .hero-logo,.bubble{animation:none !important;}
+    .btn:hover{transform:none;}
+    html{scroll-behavior:auto;}
   }
 </style>
 </head>
 <body>
 
+  <div class="sky" aria-hidden="true"></div>
   <div class="skyline" aria-hidden="true"></div>
   <div class="bubbles" id="bubbles" aria-hidden="true"></div>
 
-  <main>
-    <img class="logo" src="PPG_Logo.png" alt="Puppy Fresh Grooming logo — two dogs in a bubble bath">
-
-    <p class="eyebrow">A fresh look is on the way</p>
-    <h1>Coming&nbsp;Soon</h1>
-    <p class="tagline">Relax <span class="dot"></span> Refresh <span class="dot"></span> Repeat</p>
-
-    <p class="sub">
-      We're giving Puppy Fresh Grooming a brand-new home online — same pampered
-      pups, same gentle care, just a fresh coat of paint on the website.
-      Check back soon!
-    </p>
-
-    <div class="pill">
-      <svg class="paw" viewBox="0 0 64 64" fill="var(--sunset-pink)" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="20" cy="18" rx="7" ry="9"/>
-        <ellipse cx="34" cy="12" rx="6.5" ry="8.5"/>
-        <ellipse cx="48" cy="18" rx="7" ry="9"/>
-        <ellipse cx="42" cy="32" rx="7.5" ry="9.5"/>
-        <path d="M32 30c11 0 18 8 18 17 0 8-6 12-14 12-3 0-4-2-4-2s-1 2-4 2c-8 0-14-4-14-12 0-9 7-17 18-17z"/>
-      </svg>
-      <span>Booking will reopen at launch</span>
-    </div>
-
-    <div class="contact">
-      <a class="contact-link" href="mailto:puppyfreshgrooming@gmail.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
-        <span>puppyfreshgrooming@gmail.com</span>
+  <header class="content">
+    <div class="wrap bar">
+      <a class="brandmark" href="index.html">
+        <img src="PPG_Logo.png" alt="Puppy Fresh Grooming logo">
+        <span>Puppy Fresh<br>Grooming</span>
       </a>
-      <span class="contact-sep">&bull;</span>
-      <span class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.2A7 7 0 0 1 19 9.8C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
-        <span>Mt. Pleasant, South Carolina</span>
-      </span>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#booking">Booking</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="request.html">Book a spa day</a>
+      </nav>
     </div>
+  </header>
+
+  <main class="content">
+
+    <div class="hero wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">In-home concierge dog grooming</span>
+          <h1>Your pup gets the spa day. You keep the car clean.</h1>
+          <p class="lede">We come to your home in Mt. Pleasant, South Carolina — no crates, no kennel waiting, no drop-off. Just your dog, in a room they already know.</p>
+          <div class="hero-actions">
+            <a class="btn" href="request.html">
+              <svg class="paw" viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="20" cy="18" rx="7" ry="9"/>
+                <ellipse cx="34" cy="12" rx="6.5" ry="8.5"/>
+                <ellipse cx="48" cy="18" rx="7" ry="9"/>
+                <ellipse cx="42" cy="32" rx="7.5" ry="9.5"/>
+                <path d="M32 30c11 0 18 8 18 17 0 8-6 12-14 12-3 0-4-2-4-2s-1 2-4 2c-8 0-14-4-14-12 0-9 7-17 18-17z"/>
+              </svg>
+              <span>Request an appointment</span>
+            </a>
+            <a class="btn btn-glass" href="tel:+13363913547">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h3l1.5 4-2 1.4a12.5 12.5 0 0 0 6.1 6.1l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z"/></svg>
+              <span>336.391.3547</span>
+            </a>
+          </div>
+          <p class="hero-note">Nothing is booked until we look it over and write back — usually the same day.</p>
+          <p class="tagline">Relax <span>&bull;</span> Refresh <span>&bull;</span> Repeat</p>
+        </div>
+        <div>
+          <img class="hero-logo" src="PPG_Logo.png" alt="Two dogs in a bubble bath — the Puppy Fresh Grooming logo">
+        </div>
+      </div>
+    </div>
+
+    <section id="services" class="wrap">
+      <div class="section-head">
+        <h2>What we can do for your dog</h2>
+        <p>Pick one service or a few. Tell us what you have in mind on the request form and we'll talk through what suits your dog's coat.</p>
+      </div>
+      <ul class="services">
+        <li class="panel">
+          <svg class="paw" viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><ellipse cx="20" cy="18" rx="7" ry="9"/><ellipse cx="34" cy="12" rx="6.5" ry="8.5"/><ellipse cx="48" cy="18" rx="7" ry="9"/><ellipse cx="42" cy="32" rx="7.5" ry="9.5"/><path d="M32 30c11 0 18 8 18 17 0 8-6 12-14 12-3 0-4-2-4-2s-1 2-4 2c-8 0-14-4-14-12 0-9 7-17 18-17z"/></svg>
+          <h3>Full-service groom</h3>
+          <p>Bath, dry, haircut, nails, ears, and finish — the whole visit, start to shiny.</p>
+        </li>
+        <li class="panel">
+          <svg class="paw" viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><ellipse cx="20" cy="18" rx="7" ry="9"/><ellipse cx="34" cy="12" rx="6.5" ry="8.5"/><ellipse cx="48" cy="18" rx="7" ry="9"/><ellipse cx="42" cy="32" rx="7.5" ry="9.5"/><path d="M32 30c11 0 18 8 18 17 0 8-6 12-14 12-3 0-4-2-4-2s-1 2-4 2c-8 0-14-4-14-12 0-9 7-17 18-17z"/></svg>
+          <h3>Bath &amp; brush</h3>
+          <p>A wash, thorough dry, and brush-out. Great between haircuts or for coats that don't get cut.</p>
+        </li>
+        <li class="panel">
+          <svg class="paw" viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><ellipse cx="20" cy="18" rx="7" ry="9"/><ellipse cx="34" cy="12" rx="6.5" ry="8.5"/><ellipse cx="48" cy="18" rx="7" ry="9"/><ellipse cx="42" cy="32" rx="7.5" ry="9.5"/><path d="M32 30c11 0 18 8 18 17 0 8-6 12-14 12-3 0-4-2-4-2s-1 2-4 2c-8 0-14-4-14-12 0-9 7-17 18-17z"/></svg>
+          <h3>Haircut or trim</h3>
+          <p>Breed style or your own preference. Tell us the length you like and we'll match it where the coat allows.</p>
+        </li>
+        <li class="panel">
+          <svg class="paw" viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><ellipse cx="20" cy="18" rx="7" ry="9"/><ellipse cx="34" cy="12" rx="6.5" ry="8.5"/><ellipse cx="48" cy="18" rx="7" ry="9"/><ellipse cx="42" cy="32" rx="7.5" ry="9.5"/><path d="M32 30c11 0 18 8 18 17 0 8-6 12-14 12-3 0-4-2-4-2s-1 2-4 2c-8 0-14-4-14-12 0-9 7-17 18-17z"/></svg>
+          <h3>Nail trim</h3>
+          <p>A quick, calm nail trim on its own — handy for dogs who don't need a full groom.</p>
+        </li>
+        <li class="panel">
+          <svg class="paw" viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><ellipse cx="20" cy="18" rx="7" ry="9"/><ellipse cx="34" cy="12" rx="6.5" ry="8.5"/><ellipse cx="48" cy="18" rx="7" ry="9"/><ellipse cx="42" cy="32" rx="7.5" ry="9.5"/><path d="M32 30c11 0 18 8 18 17 0 8-6 12-14 12-3 0-4-2-4-2s-1 2-4 2c-8 0-14-4-14-12 0-9 7-17 18-17z"/></svg>
+          <h3>Face, feet &amp; sanitary trim</h3>
+          <p>The tidy-up between full grooms: eyes cleared, paws neatened, sanitary area trimmed.</p>
+        </li>
+        <li class="panel">
+          <svg class="paw" viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><ellipse cx="20" cy="18" rx="7" ry="9"/><ellipse cx="34" cy="12" rx="6.5" ry="8.5"/><ellipse cx="48" cy="18" rx="7" ry="9"/><ellipse cx="42" cy="32" rx="7.5" ry="9.5"/><path d="M32 30c11 0 18 8 18 17 0 8-6 12-14 12-3 0-4-2-4-2s-1 2-4 2c-8 0-14-4-14-12 0-9 7-17 18-17z"/></svg>
+          <h3>Something else</h3>
+          <p>A puppy's first visit, a senior who needs it slow, a heavy de-shed. Ask — there's a notes box on the form.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="booking" class="wrap">
+      <div class="section-head">
+        <h2>How booking works</h2>
+        <p>Three steps, and none of them involve sitting on hold.</p>
+      </div>
+      <div class="steps">
+        <div class="step panel">
+          <span class="step-num">1</span>
+          <div>
+            <h3>You send a request</h3>
+            <p>Choose a date and time that works, then tell us about your dog — breed, age, health, and how they usually handle grooming.</p>
+          </div>
+        </div>
+        <div class="step panel">
+          <span class="step-num">2</span>
+          <div>
+            <h3>We review it</h3>
+            <p>We check the schedule and make sure the service fits your dog's coat and temperament before anything is promised.</p>
+          </div>
+        </div>
+        <div class="step panel">
+          <span class="step-num">3</span>
+          <div>
+            <h3>You get a confirmation</h3>
+            <p>You'll hear back — usually the same day — with your confirmed time and anything to have ready.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="split">
+        <div class="panel">
+          <h2>Getting your home ready</h2>
+          <p>Everything arrives with the groomer. All we need on your end is a little space and a calm room.</p>
+          <ul class="dots">
+            <li>A clean, well-lit area with room for the grooming table and equipment</li>
+            <li>Children and other pets kept clear of the grooming area when asked</li>
+            <li>A heads-up about anything hazardous in the space</li>
+            <li>Room to work without interruption while clippers and dryers are running</li>
+          </ul>
+          <p>Some dogs settle much faster when they can't see or hear their owner. If we ask for a few minutes of space, it's for their comfort and safety.</p>
+        </div>
+        <div class="panel">
+          <h2>Tell us before we start</h2>
+          <p>Honest answers here make the appointment safer and calmer for your dog. Nothing on this list is a dealbreaker — surprises are.</p>
+          <ul class="dots">
+            <li>Health conditions: allergies, skin issues, seizures, heart or breathing trouble, joint problems, recent surgery, current medications</li>
+            <li>Any history of biting, snapping, or serious anxiety during grooming, nail trims, or with clippers and dryers</li>
+            <li>Your vet's name and number, plus an emergency contact</li>
+          </ul>
+          <p>Grooming can uncover conditions nobody knew about, and it can be stressful for senior or medically fragile dogs. If continuing would put your dog at risk, we'll pause, modify, or stop — comfort comes before a perfect haircut.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-head">
+        <h2>Good to know</h2>
+        <p>The practical details, up front, so nothing is a surprise on appointment day.</p>
+      </div>
+      <div class="notes">
+        <div>
+          <h3>Matted coats</h3>
+          <p>Badly matted hair often can't be safely brushed out. When a shorter cut is the kinder option, we'll go that route — matting hides irritation, sores, and skin that's pulled tight, so removing it carries some risk.</p>
+        </div>
+        <div>
+          <h3>Cancellations</h3>
+          <p>Please give at least 48 hours to cancel or reschedule. Less notice than that is charged at 50% of the service price, due before the next appointment is booked.</p>
+        </div>
+        <div>
+          <h3>Running late</h3>
+          <p>If your dog can't be reached within 15 minutes of the start time, it counts as a no-show and is charged at 50%. A late start may also mean a shorter groom or a new date.</p>
+        </div>
+        <div>
+          <h3>Payment</h3>
+          <p>Due when the groom is finished, unless we've arranged otherwise. The final price can shift from an estimate if coat condition, matting, or behavior means extra time — and we'll tell you before it does.</p>
+        </div>
+        <div>
+          <h3>Fleas &amp; ticks</h3>
+          <p>If we find fleas, ticks, or other parasites, we may need to stop or change the service. Extra cleaning and sanitation charges can apply, and we'll let you know first.</p>
+        </div>
+        <div>
+          <h3>Photos</h3>
+          <p>We love showing off a fresh groom on Instagram, but only with your say-so. It's an optional yes-or-no on the form, and your address never goes out with a photo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="cta">
+        <h2>Ready to book your pup's spa day?</h2>
+        <p>Pick a time, tell us about your dog, and we'll write back to confirm.</p>
+        <a class="btn" href="request.html">
+          <svg class="paw" viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="20" cy="18" rx="7" ry="9"/>
+            <ellipse cx="34" cy="12" rx="6.5" ry="8.5"/>
+            <ellipse cx="48" cy="18" rx="7" ry="9"/>
+            <ellipse cx="42" cy="32" rx="7.5" ry="9.5"/>
+            <path d="M32 30c11 0 18 8 18 17 0 8-6 12-14 12-3 0-4-2-4-2s-1 2-4 2c-8 0-14-4-14-12 0-9 7-17 18-17z"/>
+          </svg>
+          <span>Request an appointment</span>
+        </a>
+      </div>
+    </section>
+
   </main>
 
-  <footer>&copy; <span id="year"></span> Puppy Fresh Grooming</footer>
+  <footer id="contact">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <img class="foot-logo" src="PPG_Logo.png" alt="">
+          <p>In-home concierge dog grooming for Mt. Pleasant, South Carolina and the surrounding area.</p>
+        </div>
+        <div>
+          <h3>Get in touch</h3>
+          <ul class="contact-list">
+            <li>
+              <a class="contact-link" href="tel:+13363913547">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h3l1.5 4-2 1.4a12.5 12.5 0 0 0 6.1 6.1l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z"/></svg>
+                <span>336.391.3547</span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-link" href="mailto:puppyfreshgrooming@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+                <span>puppyfreshgrooming@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-link" href="https://www.instagram.com/puppyfreshgrooming/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+                <span>@puppyfreshgrooming</span>
+              </a>
+            </li>
+            <li>
+              <span class="contact-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.2A7 7 0 0 1 19 9.8C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+                <span>Mt. Pleasant, South Carolina</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Book</h3>
+          <ul class="contact-list">
+            <li><a class="contact-link" href="request.html">Request an appointment</a></li>
+            <li><a class="contact-link" href="#services">Services</a></li>
+            <li><a class="contact-link" href="#booking">How booking works</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="legal">&copy; <span id="year"></span> Puppy Fresh Grooming &nbsp;&bull;&nbsp; Mt. Pleasant, South Carolina &nbsp;&bull;&nbsp; Relax. Refresh. Repeat.</p>
+    </div>
+  </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Generate rising bubbles matching the logo's bath scene
     const field = document.getElementById('bubbles');
     const BUBBLE_COUNT = 22;
     for (let i = 0; i < BUBBLE_COUNT; i++) {
